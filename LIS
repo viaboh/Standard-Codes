@@ -1,0 +1,25 @@
+//Longest Increasing Subsequence
+
+#include <stdio.h>
+ 
+int main(void) {
+ 
+	int maxlength[9],i,j,a[9];
+ 
+	for(i=0;i<9;i++)
+	scanf("%d",&a[i]);
+ 
+    maxlength[0]=1;
+ 
+	for(i=0;i<9;i++){
+    if(i!=0)
+	maxlength[i]=maxlength[i-1];
+ 
+	for(j=0;j<i;j++){
+	if(a[i]>a[j] && maxlength[j]+1>maxlength[i])
+	maxlength[i]=maxlength[j]+1;
+	}
+	}
+	printf("%d",maxlength[8]);
+	return 0;
+}
